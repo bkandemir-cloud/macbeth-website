@@ -1,0 +1,106 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description?: string;
+  mode?: 'student' | 'teacher';
+  active?: string;
+}
+
+const {
+  title,
+  description = 'Macbeth: an Extended English study site (Edexcel International GCSE English Literature · Coursework: Shakespeare).',
+  mode = 'student',
+  active = '',
+} = Astro.props;
+
+const studentNav = [
+  { href: '/', label: 'Home', key: 'home' },
+  { href: '/guide/', label: 'The Guide', key: 'guide' },
+  { href: '/coursework/', label: 'Coursework', key: 'task' },
+];
+
+const teacherNav = [
+  { href: '/teachers/', label: 'Overview', key: 'teacher-home' },
+];
+
+const nav = mode === 'teacher' ? teacherNav : studentNav;
+---
+
+<!doctype html>
+<html lang="en-GB" data-mode={mode}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title} · Macbeth Study Guide</title>
+    <meta name="description" content={description} />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  </head>
+  <body>
+    <div class="mode-bar">
+      <div class="wrap">
+        <div class="mode-tabs" role="navigation" aria-label="Site version">
+          <a href="/" aria-current={mode === 'student' ? 'true' : 'false'}>For Students</a>
+          <a href="/teachers/" aria-current={mode === 'teacher' ? 'true' : 'false'}>For Teachers</a>
+        </div>
+        <span class="mode-note">
+          {mode === 'teacher'
+            ? 'Teacher area'
+            : 'Edexcel International GCSE English Literature · Coursework: Shakespeare'}
+        </span>
+      </div>
+    </div>
+
+    <header class="site">
+      <div class="wrap">
+        <a class="brand" href={mode === 'teacher' ? '/teachers/' : '/'}>
+          <svg width="38" height="38" viewBox="0 0 38 38" aria-hidden="true">
+            <rect x="7" y="6" width="24" height="28" rx="3" fill="#EDE7DA" stroke="#26241F" stroke-width="2" transform="rotate(-4 19 19)" />
+            <circle cx="19" cy="12" r="2.2" fill="none" stroke="#26241F" stroke-width="1.8" transform="rotate(-4 19 19)" />
+            <line x1="12.5" y1="19" x2="25" y2="18" stroke="#46586B" stroke-width="2" stroke-linecap="round" />
+            <line x1="12.8" y1="24" x2="24.5" y2="23" stroke="#94764A" stroke-width="2" stroke-linecap="round" />
+            <line x1="13.1" y1="29" x2="21" y2="28.4" stroke="#26241F" stroke-width="2" stroke-linecap="round" />
+          </svg>
+          <span class="t">Macbeth<span class="s">A guide to Shakespeare&rsquo;s tragedy</span></span>
+        </a>
+        <nav class="primary" aria-label="Main">
+          {nav.map((item) => (
+            <a href={item.href} aria-current={active === item.key ? 'page' : undefined}>{item.label}</a>
+          ))}
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <slot />
+    </main>
+
+    <footer class="site">
+      <div class="wrap">
+        <div>
+          <h4>Kindertransport</h4>
+          <p style="max-width: 24em;">
+            Scene-by-scene guides to the play, the characters and their arcs, key quotations with references, and clear guidance on the coursework assignment. Written for students; built by a teacher.
+          </p>
+          <p class="small">&copy; {new Date().getFullYear()} Extended English. All rights reserved.</p>
+        </div>
+        <div class="cols">
+          <div>
+            <h4>Study</h4>
+            <ul>
+              <li><a href="/guide/">The guide</a></li>
+              <li><a href="/coursework/">Coursework</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4>Teach</h4>
+            <ul>
+              <li><a href="/teachers/">Teacher area</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
