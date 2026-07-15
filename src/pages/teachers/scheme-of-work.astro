@@ -1,0 +1,110 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const lessons = [
+  {
+    n: 1,
+    title: 'Introduction and assessment objectives',
+    focus: 'What the coursework is, and how it is judged.',
+    content: 'The Literary Heritage essay as one assessed piece marked out of 30; AO1, AO2 and AO4 at ten marks each, with context worth a third; the three set questions previewed; formatting expectations (typed, sensible font at size 11, chosen question as the title, name in the header, page numbers bottom left, teacher comments removed before resubmission); the integrity declaration introduced openly.',
+    outcome: 'Notes on the AO split and the formatting rules; an early sense of which question interests them.',
+    links: [['Coursework page', '/coursework/'], ['The guide', '/guide/']],
+  },
+  {
+    n: 2,
+    title: 'Plot, characters, themes and tragic terminology',
+    focus: 'Consolidating last term&rsquo;s study before choosing a question.',
+    content: 'Plot recall and a character map linking relationships, shared moments, a quotation and a theme; theme webs on chosen themes (ambition and power, corruption, kingship, fate versus free will, the supernatural, gender, masculinity, good versus evil, guilt and paranoia, appearance versus reality); the tragic terminology set introduced as vocabulary to apply, not to list.',
+    outcome: 'A completed character map and two or three theme webs; confident use of tragic terminology.',
+    links: [['Act 1 guide', '/guide/act-1/'], ['Act 2 guide', '/guide/act-2/'], ['Act 3 guide', '/guide/act-3/'], ['Act 4 guide', '/guide/act-4/'], ['Act 5 guide', '/guide/act-5/'], ['Characters', '/characters/'], ['Themes', '/themes/'], ['Quotation bank', '/quotations/']],
+  },
+  {
+    n: 3,
+    title: 'Purposeful contextual links',
+    focus: 'Making context earn its third of the mark.',
+    content: 'What context means in literary analysis and which objective tests it (AO4); the five context categories (historical, social, cultural and religious, authorial, literary) with detailed note-making across each; the embedded-topic-sentence technique, framing analysis through a contextual angle and looping back to it in the explanation, so context is never bolted on; optional critical lenses (feminist, psychological, historical and social) for added depth.',
+    outcome: 'Context notes under the five categories; two or three contextualised topic sentences drafted.',
+    links: [['Context', '/context/'], ['Quotation bank', '/quotations/']],
+  },
+  {
+    n: 4,
+    title: 'Question choices and planning',
+    focus: 'Choosing a question and building the essay&rsquo;s architecture.',
+    content: 'Committing to one of the three set questions; writing a thesis statement (a concise one or two sentence line of argument to return to and stay on task); effective introductions that open with the big picture, narrow to the focus and outline the argument; three balanced body paragraphs, each with a contextual topic sentence, well selected evidence and purposeful contextual links; effective conclusions that weigh rather than repeat.',
+    outcome: 'A chosen question, a thesis statement and a paragraph plan with evidence gathered.',
+    links: [['Coursework page', '/coursework/'], ['Themes', '/themes/'], ['Quotation bank', '/quotations/']],
+  },
+  {
+    n: 5,
+    title: 'Understanding feedback',
+    focus: 'Reading feedback and acting on it to upgrade a draft.',
+    content: 'The marking codes explained so students can decode comment-only feedback; whole-class feedback and a shared star paragraph modelled; academic discourse markers to lift expression and register; time spent redrafting against the feedback rather than simply correcting surface errors.',
+    outcome: 'An annotated draft with a redrafting plan; feedback codes understood and acted upon.',
+    links: [['Coursework page', '/coursework/']],
+  },
+];
+---
+
+<BaseLayout title="Scheme of Work" mode="teacher" active="sow" description="A five-lesson scheme of work for the Edexcel International GCSE Macbeth Literary Heritage coursework essay: focus, key content, student outcomes and supporting site resources.">
+  <div class="part-head">
+    <div class="wrap">
+      <p class="kicker">Five lessons &middot; Literary Heritage coursework</p>
+      <h1>Scheme of work</h1>
+      <p class="lede prose">
+        A five-lesson sequence that turns close study of the play into a planned, drafted and redrafted
+        coursework essay: the assessment objectives, consolidation and tragic terminology, purposeful
+        context, question choice and essay architecture, and using feedback well.
+      </p>
+    </div>
+  </div>
+
+  <section class="band">
+    <div class="wrap">
+      <p class="prose">
+        This sequence assumes the play was read and studied in full the previous term, so the lessons
+        consolidate and apply knowledge rather than introduce the plot. It leads into the drafting stages,
+        a first draft, a second draft and a final submission, with feedback on the first two. The teacher
+        sets the timeline each year, so no dates are given here: build them into your own calendar and share
+        them with the class in the first lesson.
+      </p>
+
+      <table class="sow">
+        <thead>
+          <tr><th>Lesson</th><th>Focus</th><th>Key content</th><th>Student outcome</th><th>Site resources</th></tr>
+        </thead>
+        <tbody>
+          {lessons.map((l) => (
+            <tr>
+              <td><strong>{l.n}. </strong><span set:html={l.title} /></td>
+              <td set:html={l.focus} />
+              <td set:html={l.content} />
+              <td set:html={l.outcome} />
+              <td>{l.links.map((lk, i) => (<span>{i > 0 && <br />}<a href={lk[1]}>{lk[0]}</a></span>))}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+
+      <div class="grid cols-2" style="margin-top: 2rem;">
+        <div class="box teach" style="margin:0;">
+          <h3>The habit that carries the unit</h3>
+          <p>
+            The single highest-leverage routine is the running quotation bank, kept open from Lesson 2 and
+            fed every lesson: short quotations from across all five acts, each tagged with a method and a
+            contextual angle that can actually be developed. Students who reach Lesson 4 with a full bank
+            plan in one lesson; those without it spend the planning lesson rereading.
+          </p>
+        </div>
+        <div class="box teach" style="margin:0;">
+          <h3>Keep context in the topic sentence</h3>
+          <p>
+            Because AO4 is worth a third of the mark, context cannot sit in a paragraph of its own at the
+            end. From Lesson 3 onwards, insist that every body paragraph opens with a contextual angle and
+            loops back to it in the analysis. Naming a device is labelling, not analysis: push every method
+            to its effect on a Jacobean audience.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

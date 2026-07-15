@@ -10,7 +10,7 @@ interface Props {
 
 const {
   title,
-  description = 'Macbeth: an Extended English study site (Edexcel International GCSE English Literature · Coursework: Shakespeare).',
+  description = 'Macbeth: an Extended English study site (Edexcel International GCSE English Literature, Component 3: the Literary Heritage coursework essay).',
   mode = 'student',
   active = '',
 } = Astro.props;
@@ -18,11 +18,18 @@ const {
 const studentNav = [
   { href: '/', label: 'Home', key: 'home' },
   { href: '/guide/', label: 'The Guide', key: 'guide' },
+  { href: '/themes/', label: 'Themes', key: 'themes' },
+  { href: '/characters/', label: 'Characters', key: 'characters' },
+  { href: '/context/', label: 'Context', key: 'context' },
+  { href: '/quotations/', label: 'Quotations', key: 'quotations' },
   { href: '/coursework/', label: 'Coursework', key: 'task' },
 ];
 
 const teacherNav = [
   { href: '/teachers/', label: 'Overview', key: 'teacher-home' },
+  { href: '/teachers/scheme-of-work/', label: 'Scheme of work', key: 'sow' },
+  { href: '/teachers/lessons/', label: 'Lessons', key: 'lessons' },
+  { href: '/teachers/assessment/', label: 'Assessment', key: 'assessment' },
 ];
 
 const nav = mode === 'teacher' ? teacherNav : studentNav;
@@ -33,7 +40,7 @@ const nav = mode === 'teacher' ? teacherNav : studentNav;
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>{title} · Macbeth Study Guide</title>
+    <title>{title} &middot; Macbeth Study Guide</title>
     <meta name="description" content={description} />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
   </head>
@@ -47,7 +54,7 @@ const nav = mode === 'teacher' ? teacherNav : studentNav;
         <span class="mode-note">
           {mode === 'teacher'
             ? 'Teacher area'
-            : 'Edexcel International GCSE English Literature · Coursework: Shakespeare'}
+            : 'Edexcel International GCSE English Literature &middot; Component 3: Literary Heritage coursework'}
         </span>
       </div>
     </div>
@@ -56,11 +63,9 @@ const nav = mode === 'teacher' ? teacherNav : studentNav;
       <div class="wrap">
         <a class="brand" href={mode === 'teacher' ? '/teachers/' : '/'}>
           <svg width="38" height="38" viewBox="0 0 38 38" aria-hidden="true">
-            <rect x="7" y="6" width="24" height="28" rx="3" fill="#EDE7DA" stroke="#26241F" stroke-width="2" transform="rotate(-4 19 19)" />
-            <circle cx="19" cy="12" r="2.2" fill="none" stroke="#26241F" stroke-width="1.8" transform="rotate(-4 19 19)" />
-            <line x1="12.5" y1="19" x2="25" y2="18" stroke="#46586B" stroke-width="2" stroke-linecap="round" />
-            <line x1="12.8" y1="24" x2="24.5" y2="23" stroke="#94764A" stroke-width="2" stroke-linecap="round" />
-            <line x1="13.1" y1="29" x2="21" y2="28.4" stroke="#26241F" stroke-width="2" stroke-linecap="round" />
+            <path d="M8 27 L8 13 L13.5 18 L19 10 L24.5 18 L30 13 L30 27 Z" fill="#EFE5D2" stroke="#1F1A17" stroke-width="2" stroke-linejoin="round" />
+            <line x1="8" y1="30.5" x2="30" y2="30.5" stroke="#8E2430" stroke-width="2.4" stroke-linecap="round" />
+            <circle cx="19" cy="8" r="1.8" fill="#8E2430" />
           </svg>
           <span class="t">Macbeth<span class="s">A guide to Shakespeare&rsquo;s tragedy</span></span>
         </a>
@@ -81,7 +86,7 @@ const nav = mode === 'teacher' ? teacherNav : studentNav;
         <div>
           <h4>Macbeth</h4>
           <p style="max-width: 24em;">
-            Scene-by-scene guides to the play, the characters and their arcs, key quotations with references, and clear guidance on the coursework assignment. Written for students; built by a teacher.
+            Act-by-act guides to the play, the characters and their arcs, verified quotations, context that earns its place, and clear guidance on the Literary Heritage coursework essay. Written for students; built by a teacher.
           </p>
           <p class="small">&copy; {new Date().getFullYear()} Extended English. All rights reserved.</p>
         </div>
@@ -90,6 +95,10 @@ const nav = mode === 'teacher' ? teacherNav : studentNav;
             <h4>Study</h4>
             <ul>
               <li><a href="/guide/">The guide</a></li>
+              <li><a href="/themes/">Themes</a></li>
+              <li><a href="/characters/">Characters</a></li>
+              <li><a href="/context/">Context</a></li>
+              <li><a href="/quotations/">Quotations</a></li>
               <li><a href="/coursework/">Coursework</a></li>
             </ul>
           </div>
@@ -97,6 +106,9 @@ const nav = mode === 'teacher' ? teacherNav : studentNav;
             <h4>Teach</h4>
             <ul>
               <li><a href="/teachers/">Teacher area</a></li>
+              <li><a href="/teachers/scheme-of-work/">Scheme of work</a></li>
+              <li><a href="/teachers/lessons/">Lessons</a></li>
+              <li><a href="/teachers/assessment/">Assessment</a></li>
             </ul>
           </div>
         </div>

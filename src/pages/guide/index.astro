@@ -1,26 +1,77 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const acts = [
+  { n: 'Act One', href: '/guide/act-1/', hook: 'The temptation: prophecy meets ambition, and a loyal soldier talks himself into murdering his king.' },
+  { n: 'Act Two', href: '/guide/act-2/', hook: 'The deed: the killing happens off-stage, and the play tips from planning into guilt, knocking and disorder.' },
+  { n: 'Act Three', href: '/guide/act-3/', hook: 'The tyranny: Macbeth kills to keep the crown, and discovers the killing will not stay done.' },
+  { n: 'Act Four', href: '/guide/act-4/', hook: 'The unravelling: false comfort from the witches, and a slaughter that turns Scotland against its king.' },
+  { n: 'Act Five', href: '/guide/act-5/', hook: 'The reckoning: guilt, isolation and nemesis close the circle the first prophecy opened.' },
+];
 ---
 
-<BaseLayout title="The Guide" active="guide">
+<BaseLayout title="The Guide, Act by Act" active="guide" description="An act-by-act guide to Macbeth: what happens, the methods that matter, and verified quotations, built to feed the Literary Heritage coursework essay.">
   <div class="part-head">
     <div class="wrap">
-      <p class="kicker">Under construction, deliberately</p>
-      <h1>The guide</h1>
-      <p class="lede prose">Scene-by-scene guides to the play, the characters and their arcs, key quotations, and clear guidance on the Shakespeare coursework assignment. This site is growing: the framework is here, and the guides arrive as the unit is taught.</p>
+      <p class="kicker">The study guide</p>
+      <h1>The guide, act by act</h1>
+      <p class="lede prose">
+        Five acts, one falling arc. These guides do not retell the plot for its own sake: they
+        show you what each act <em>does</em> to the tragedy, and hand you the quotations and the
+        analytical habits you will need when you sit down to write.
+      </p>
     </div>
   </div>
+
   <section class="band">
     <div class="wrap prose">
-      <h2 style="margin-top:0;">Planned contents</h2>
-      <ul class="tick">
-        <li>Act-by-act, scene-by-scene guides with staging and language analysis</li>
-        <li>Character studies: the Macbeths, Banquo, Duncan, Macduff, the Witches</li>
-        <li>A quotation bank with act, scene and line references</li>
-        <li>Context that earns its place: kingship, the supernatural, James I</li>
-      </ul>
-      <p>Each guide follows the family method: what the text or form is doing, the methods that
-      matter, and analysis that always moves from device to effect.</p>
+      <h2 style="margin-top:0;">How to use this guide</h2>
+      <p>
+        Read the act first, in your edition, before you read the guide. Then use each page in
+        three passes. Start with <strong>What happens</strong> to fix the sequence of events in
+        your head. Move to <strong>A closer look</strong>, where three short essays model the
+        kind of argument your coursework wants: not what the scene says, but how Shakespeare
+        makes it mean. Finish with the <strong>quotation table</strong>, and copy the lines that
+        give you something to say into your own bank. The <strong>Think it through</strong>
+        questions are there to keep the reading open; the <strong>Towards the coursework</strong>
+        box turns each act back towards the essay you are building.
+      </p>
+
+      <div class="grid cols-3">
+        {acts.map((a) => (
+          <a class="card" href={a.href}>
+            <h3>{a.n}</h3>
+            <p>{a.hook}</p>
+          </a>
+        ))}
+      </div>
+
+      <div class="box think">
+        <h3>How to read a scene</h3>
+        <p>
+          The family method is one sentence long: <strong>move from device to effect, every
+          time</strong>. Naming a device is labelling, not analysis. Spotting a metaphor,
+          writing &lsquo;this is a metaphor&rsquo;, and moving on earns almost nothing, because
+          it stops exactly where the thinking should start.
+        </p>
+        <p>
+          So train the habit. When a line strikes you, ask three questions in order. What is the
+          <em>method</em> (the word choice, the image, the verse or prose, the staging, the
+          silence, the thing done off-stage)? What is the <em>effect</em> on an audience in the
+          moment (fear, sympathy, unease, a flash of dramatic irony)? And what does that effect
+          let you <em>argue</em> about the play as a whole (about kingship, about guilt, about
+          what the tragedy believes)? A good paragraph is that chain, tightened: one method, one
+          effect, one claim, looped back to the question you were set.
+        </p>
+      </div>
+
+      <p>
+        Everything here points one way. The guide is not the destination; the essay is. Each act
+        page ends by folding back into the three set questions on kingship, the presentation of
+        women and masculinity, so that by the time you reach the
+        <a href="/coursework/">coursework page</a> you are not staring at a blank document but
+        assembling an argument you have already half-made.
+      </p>
     </div>
   </section>
 </BaseLayout>
