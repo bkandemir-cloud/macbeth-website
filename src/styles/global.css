@@ -317,3 +317,9 @@ ul.tick li::before { content: '✓'; position: absolute; left: 0; color: var(--s
   letter-spacing: 0.08em; text-transform: uppercase; padding: 0.2rem 0.7rem;
   border: 1.5px solid var(--accent-deep); color: var(--accent-deep); border-radius: 999px; margin-right: 0.4rem;
 }
+
+/* ---------- family strip ---------- */
+.mode-side { display: flex; align-items: center; gap: 1.1rem; min-width: 0; }
+.hub-link { color: #EDE7DA; text-decoration: none; font-family: var(--sans); font-weight: 600; opacity: 0.85; white-space: nowrap; }
+.hub-link::after { content: ' \2197'; font-size: 0.85em; }
+.hub-link:hover { opacity: 1; text-decoration: underline; }
