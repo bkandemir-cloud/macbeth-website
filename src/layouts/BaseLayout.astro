@@ -51,11 +51,14 @@ const nav = mode === 'teacher' ? teacherNav : studentNav;
           <a href="/" aria-current={mode === 'student' ? 'true' : 'false'}>For Students</a>
           <a href="/teachers/" aria-current={mode === 'teacher' ? 'true' : 'false'}>For Teachers</a>
         </div>
-        <span class="mode-note">
-          {mode === 'teacher'
-            ? 'Teacher area'
-            : 'Edexcel International GCSE English Literature · Component 3: Literary Heritage coursework'}
-        </span>
+        <div class="mode-side">
+          <span class="mode-note">
+            {mode === 'teacher'
+              ? 'Teacher area'
+              : 'Edexcel International GCSE English Literature · Component 3: Literary Heritage coursework'}
+          </span>
+          <a class="hub-link" href="https://extendedenglish.com/">Extended English</a>
+        </div>
       </div>
     </div>
 
@@ -109,6 +112,12 @@ const nav = mode === 'teacher' ? teacherNav : studentNav;
               <li><a href="/teachers/scheme-of-work/">Scheme of work</a></li>
               <li><a href="/teachers/lessons/">Lessons</a></li>
               <li><a href="/teachers/assessment/">Assessment</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4>The family</h4>
+            <ul>
+              <li><a href="https://extendedenglish.com/">Extended English home</a></li>
             </ul>
           </div>
         </div>
