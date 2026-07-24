@@ -1,0 +1,258 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const jump = [
+  ['l1', 'Lesson 1'], ['l2', 'Lesson 2'], ['l3', 'Lesson 3'], ['l4', 'Lesson 4'], ['l5', 'Lesson 5'],
+];
+
+const terms = [
+  ['Tragedy', 'A dramatic form in which a high-ranking figure is brought to ruin through a fatal flaw, an error of judgement, or the pressure of fate.'],
+  ['Tragic hero', 'The central figure whose fall provokes pity and fear in the audience.'],
+  ['Hamartia', 'The fatal flaw or error of judgement that drives the fall.'],
+  ['Hubris', 'Overreaching pride that leads the hero to defy moral law or divine order.'],
+  ['Peripeteia', 'A sudden reversal of fortune, usually from high to low.'],
+  ['Anagnorisis', 'The moment of recognition, when the hero sees the truth of their situation.'],
+  ['Catharsis', 'The release of pity and fear the tragedy works on its audience.'],
+  ['Nemesis', 'The retribution the hero cannot finally escape.'],
+  ['Fatalism / fate', 'The sense that events are fixed in advance, often through the supernatural.'],
+  ['Foreshadowing', 'Earlier hints that prepare the audience for later disaster.'],
+  ['Pathetic fallacy', 'Weather or nature mirroring the hero&rsquo;s turmoil or the disorder of the state.'],
+  ['Dramatic irony', 'The audience knowing something a character on stage does not.'],
+  ['Supernatural machinery', 'Witches, ghosts and prophecies that shape and misdirect the action.'],
+  ['Moral order / the Great Chain of Being', 'The God-ordained hierarchy whose disruption brings chaos.'],
+  ['Violence on and off stage', 'What Shakespeare chooses to show and what he withholds, and the effect of each.'],
+  ['Soliloquy', 'A speech that gives the audience direct access to a character&rsquo;s private mind.'],
+];
+
+const contextCats = [
+  ['Historical', 'The Gunpowder Plot (1605); the equivocation trials (1606) and Henry Garnet; the Union of the Crowns (1603); the 1604 witchcraft statute; the historical Macbeth of eleventh-century Scotland, and how far Shakespeare reshaped him.'],
+  ['Social', 'Jacobean gender roles and the ideal of the silent, obedient woman; the household as a miniature kingdom; honour and loyalty, and the horror of harming a guest or a kinsman; the concerns of court life.'],
+  ['Cultural and religious', 'Protestant England and its fear of Catholic plot; James I&rsquo;s Daemonologie and popular demonology; providence and divine order; the fear that disorder in one place would spread like disease.'],
+  ['Authorial', 'Holinshed&rsquo;s Chronicles as source; Banquo ennobled to flatter James, who claimed descent from him; the King&rsquo;s Men under royal patronage; first performed around 1606.'],
+  ['Literary', 'Tragedy inherited from the Greeks; chronicle history dramatised; the Jacobean interest in usurpation; high poetry mixed with spectacle; soliloquy standing in for the classical chorus.'],
+];
+
+const codes = [
+  ['Sp', 'Spelling.'],
+  ['Gr', 'Grammar error.'],
+  ['Exp', 'Expression: the wording does not quite work, so rewrite the sentence to make it flow.'],
+  ['Vg', 'Too vague: the idea needs expanding.'],
+  ['^', 'A word or phrase is missing.'],
+  ['P', 'Missing or wrong punctuation.'],
+  ['C', 'A capital letter is needed.'],
+  ['SWA', 'Single-word analysis: zoom in and analyse the word itself.'],
+  ['//', 'A paragraph break is missing here.'],
+];
+
+const markers = [
+  'It is plausible that&hellip;',
+  'A potential reading may be&hellip;',
+  'One inference may suggest&hellip;',
+  'This connotation could imply&hellip;',
+  'Building on my aforementioned point&hellip;',
+];
+---
+
+<BaseLayout title="Lessons in Detail" mode="teacher" active="lessons" description="Lesson-by-lesson detail for the five Macbeth coursework lessons: learning objectives, activity sequences, pitfalls to pre-empt and written outcomes, with the tragic terminology, context categories, essay architecture, marking codes and discourse markers.">
+  <div class="part-head">
+    <div class="wrap">
+      <p class="kicker">Five lessons &middot; in detail</p>
+      <h1>Lessons in detail</h1>
+      <p class="lede prose">
+        Each lesson gives a learning objective, a sequence of activities, the pitfalls to pre-empt and the
+        written outcome. The specialised content lives where it is taught: the tragic terminology in Lesson
+        2, the context categories and the embedded-topic-sentence technique in Lesson 3, the essay
+        architecture in Lesson 4, and the marking codes and discourse markers in Lesson 5.
+      </p>
+      <p class="small">
+        Jump to: {jump.map((j, i) => (<span>{i > 0 && ' · '}<a href={`#${j[0]}`}>{j[1]}</a></span>))}
+      </p>
+    </div>
+  </div>
+
+  <section class="band">
+    <div class="wrap prose">
+
+      <div id="l1" style="margin-bottom:3rem;">
+        <h2 style="margin-top:0;">Lesson 1: Introduction and assessment objectives</h2>
+        <p><strong>Objective.</strong> To understand the purpose and requirements of the Macbeth coursework, and how the essay is judged against the specification.</p>
+        <h3>Sequence of activities</h3>
+        <ol class="steps">
+          <li>Place the essay in the course: one Literary Heritage assignment, open book, word-processed, marked out of 30.</li>
+          <li>Unpick the assessment objectives: AO1, AO2 and AO4 at ten marks each, and the fact that context alone carries a third of the mark.</li>
+          <li>Preview the three set questions so students start noticing which one draws them.</li>
+          <li>Set out the formatting expectations: typed, size 11 in a sensible font, the chosen question as the title, full name in the header, page numbers bottom left, and teacher comments deleted before any resubmission.</li>
+          <li>Introduce the drafting stages and the integrity declaration openly, so the rules are understood from the first lesson.</li>
+        </ol>
+        <h3>Pitfalls to pre-empt</h3>
+        <ul class="tick">
+          <li>Treating the essay as a single hand-in rather than a first draft, a second draft and a final submission that improve across the stages.</li>
+          <li>Hearing &lsquo;context&rsquo; and mentally filing it as optional; it is a third of the mark.</li>
+          <li>Assuming the piece can be helped in ways the signed declaration does not allow.</li>
+        </ul>
+        <p><strong>Written outcome.</strong> Notes on the AO split and the formatting rules, and a shortlist of the question that interests them.</p>
+      </div>
+
+      <div id="l2" style="margin-bottom:3rem;">
+        <h2>Lesson 2: Plot, characters, themes and tragic terminology</h2>
+        <p><strong>Objective.</strong> To consolidate last term&rsquo;s study of the play and apply that knowledge confidently to its main themes, using the vocabulary of tragedy.</p>
+        <h3>Sequence of activities</h3>
+        <ol class="steps">
+          <li>Plot recall, then a character map: for each relationship, a shared moment, a short quotation and a linked theme.</li>
+          <li>Theme webs on two or three chosen themes, drawing together key moments, characters, quotations and contextual factors.</li>
+          <li>Introduce the terminology of tragedy as vocabulary to apply inside analysis, not a list to recite.</li>
+          <li>Model one paragraph aloud that puts a term to work, moving from the device to its effect on the audience.</li>
+        </ol>
+        <p>The themes to draw on: ambition and power, corruption, kingship, fate versus free will, the supernatural, gender, masculinity, good versus evil (morality), guilt and paranoia, and appearance versus reality.</p>
+        <h3>The tragic terminology set</h3>
+        <p>Students should reach for these confidently, because precise terms serve both AO2 and AO4. The test is always application: a named device earns nothing until its effect is explored.</p>
+        <table class="sow">
+          <thead><tr><th>Term</th><th>What it means</th></tr></thead>
+          <tbody>
+            {terms.map((t) => (<tr><td><strong set:html={t[0]} /></td><td set:html={t[1]} /></tr>))}
+          </tbody>
+        </table>
+        <h3>Pitfalls to pre-empt</h3>
+        <ul class="tick">
+          <li>Listing terminology for its own sake: &lsquo;this is a soliloquy&rsquo; with no reading of what it exposes.</li>
+          <li>Character maps that decorate rather than argue; every line should carry a theme or a tension.</li>
+          <li>Theme webs that stay at the level of plot summary instead of reaching for method and context.</li>
+        </ul>
+        <p><strong>Written outcome.</strong> A completed character map and two or three theme webs, with at least one paragraph that applies a tragic term to effect.</p>
+      </div>
+
+      <div id="l3" style="margin-bottom:3rem;">
+        <h2>Lesson 3: Purposeful contextual links</h2>
+        <p><strong>Objective.</strong> To recall key context and to understand what makes a contextual link purposeful rather than decorative.</p>
+        <h3>Sequence of activities</h3>
+        <ol class="steps">
+          <li>Define context in literary analysis, and confirm which objective tests it (AO4, worth a third of the mark).</li>
+          <li>Make detailed notes under the five context categories, using the notes as a springboard for further self-led research.</li>
+          <li>Practise the embedded-topic-sentence technique: draft topic sentences that frame the analysis through a contextual angle.</li>
+          <li>Loop back: after the close analysis, return to the contextual point to explore the &lsquo;why&rsquo; of Shakespeare&rsquo;s choices.</li>
+          <li>Optional depth: try a critical lens (feminist, psychological, or historical and social) as a way of reading, not a label to drop.</li>
+        </ol>
+        <h3>The five context categories</h3>
+        <table class="sow">
+          <thead><tr><th>Category</th><th>What to note</th></tr></thead>
+          <tbody>
+            {contextCats.map((c) => (<tr><td><strong set:html={c[0]} /></td><td set:html={c[1]} /></tr>))}
+          </tbody>
+        </table>
+        <div class="box teach">
+          <h3>The embedded-topic-sentence technique</h3>
+          <p>
+            Context should never feel bolted on. The method has two moves. First, embed it in the topic
+            sentence, opening the paragraph with a contextual angle rather than with &lsquo;This quotation
+            shows&hellip;&rsquo;. Second, loop back to it in the explanation, showing how the language, form
+            or structure reflects Shakespeare&rsquo;s world and its anxieties.
+          </p>
+          <p>
+            Take the witches&rsquo; paradox &lsquo;fair is foul, and foul is fair&rsquo; (Act 1, Scene 1). A
+            bolted-on version simply says the line links to Jacobean beliefs in witches. The embedded version
+            opens by framing the inversion of moral order through the fear, sharpened by James I&rsquo;s own
+            writing, that witchcraft could unsettle divine authority, then works the paradox closely and
+            returns to that fear to explain why Shakespeare begins the play here. The context frames the
+            analysis and the analysis pays the context back.
+          </p>
+        </div>
+        <h3>Pitfalls to pre-empt</h3>
+        <ul class="tick">
+          <li>A single &lsquo;context paragraph&rsquo; parked at the end, disconnected from the argument.</li>
+          <li>Context as a history info-dump with no return to the words on the page.</li>
+          <li>Name-dropping the Gunpowder Plot or James I with no bearing on the point being made.</li>
+          <li>Using a critical lens as a badge rather than as a way of reading the evidence.</li>
+        </ul>
+        <p><strong>Written outcome.</strong> Notes under all five categories, plus two or three contextualised topic sentences drafted and looped back.</p>
+      </div>
+
+      <div id="l4" style="margin-bottom:3rem;">
+        <h2>Lesson 4: Question choices and planning</h2>
+        <p><strong>Objective.</strong> To choose a question the student is actually interested in, and to begin planning a thesis statement and the essay&rsquo;s sections.</p>
+        <h3>Sequence of activities</h3>
+        <ol class="steps">
+          <li>Commit to one of the three set questions, each carrying the instruction to consider language, form and structure and to refer to the context of the play.</li>
+          <li>Mind-map the key words in the chosen question and stake an early position.</li>
+          <li>Write a thesis statement and compare weaker and stronger versions.</li>
+          <li>Plan the introduction, then the three body paragraphs, then the conclusion.</li>
+        </ol>
+        <div class="box teach">
+          <h3>Thesis statements and essay architecture</h3>
+          <p>
+            A <strong>thesis statement</strong> is a concise, one or two sentence outline of the essay&rsquo;s
+            central argument: a map the student returns to in order to stay on task and avoid waffle. A
+            stronger thesis takes an arguable line and hints at how the argument develops; a weaker one merely
+            restates the question or lists three topics.
+          </p>
+          <p>
+            The <strong>introduction</strong> opens with the big picture (the play as a Jacobean tragedy and
+            Shakespeare&rsquo;s purpose), narrows to the focus of the question, then outlines the line of
+            argument so the reader knows where the essay is going.
+          </p>
+          <p>
+            Each of the <strong>three body paragraphs</strong> carries a contextual topic sentence, well
+            selected evidence that gives room for close analysis of language, form and structure, and
+            purposeful contextual links that explore the &lsquo;why&rsquo; of the authorial choices. Because
+            each objective is worth ten marks, the three should be balanced within every paragraph rather
+            than split into separate AO sections.
+          </p>
+          <p>
+            The <strong>conclusion</strong> weighs the argument and reaches a considered judgement; it does
+            not simply repeat the introduction.
+          </p>
+        </div>
+        <h3>Pitfalls to pre-empt</h3>
+        <ul class="tick">
+          <li>A thesis that restates the question or lists three points instead of arguing a position.</li>
+          <li>Introductions that jump straight into a character or quotation with no framing.</li>
+          <li>Unbalanced paragraphs: strong on language, silent on context, or the reverse.</li>
+          <li>Conclusions that repeat rather than evaluate.</li>
+        </ul>
+        <p><strong>Written outcome.</strong> A chosen question, a thesis statement, and a paragraph plan with evidence gathered for each section.</p>
+      </div>
+
+      <div id="l5" style="margin-bottom:2rem;">
+        <h2>Lesson 5: Understanding feedback</h2>
+        <p><strong>Objective.</strong> To understand teacher feedback and use it meaningfully to upgrade and improve the essay, not merely to correct surface slips.</p>
+        <h3>Sequence of activities</h3>
+        <ol class="steps">
+          <li>Decode the marking codes so comment-only feedback can be acted on independently.</li>
+          <li>Work through whole-class feedback and a shared star paragraph, drawing out what lifted it.</li>
+          <li>Introduce academic discourse markers to sharpen register and signal tentative, evaluative reading.</li>
+          <li>Redraft against the feedback: address the substance first, then the surface.</li>
+        </ol>
+        <h3>The marking codes</h3>
+        <p>Feedback is comment-only, so students must be able to read the codes for themselves.</p>
+        <table class="sow">
+          <thead><tr><th>Code</th><th>Meaning</th></tr></thead>
+          <tbody>
+            {codes.map((c) => (<tr><td><strong set:html={c[0]} /></td><td set:html={c[1]} /></tr>))}
+          </tbody>
+        </table>
+        <h3>Academic discourse markers</h3>
+        <p>Useful sentence stems for tentative, evaluative analysis:</p>
+        <ul class="tick">
+          {markers.map((m) => (<li set:html={m} />))}
+        </ul>
+        <h3>Pitfalls to pre-empt</h3>
+        <ul class="tick">
+          <li>Correcting spelling and punctuation while ignoring the substantive redraft the codes point to.</li>
+          <li>Sprinkling discourse markers formulaically so register replaces thought.</li>
+          <li>Forgetting to delete teacher comments before the next submission.</li>
+        </ul>
+        <p><strong>Written outcome.</strong> A decoded, annotated draft with a clear redrafting plan for the next stage.</p>
+      </div>
+
+      <div class="box">
+        <h3>What this page deliberately leaves out</h3>
+        <p>
+          No student exemplar paragraphs are reproduced here, and no published mark scheme or Pearson
+          material is copied. The worked examples above are original, the terminology and category notes are
+          written afresh, and any quotation is verified and cited by act and scene. Marking stays
+          comment-only, and the writing stays the student&rsquo;s own.
+        </p>
+      </div>
+
+    </div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,149 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description?: string;
+  mode?: 'student' | 'teacher';
+  active?: string;
+}
+
+const {
+  title,
+  description = 'Macbeth: an Extended English study site (Edexcel International GCSE English Literature, Component 3: the Literary Heritage coursework essay).',
+  mode = 'student',
+  active = '',
+} = Astro.props;
+
+const studentNav = [
+  { href: '/', label: 'Home', key: 'home' },
+  { href: '/guide/', label: 'The Guide', key: 'guide' },
+  { href: '/themes/', label: 'Themes', key: 'themes' },
+  { href: '/characters/', label: 'Characters', key: 'characters' },
+  { href: '/context/', label: 'Context', key: 'context' },
+  { href: '/quotations/', label: 'Quotations', key: 'quotations' },
+  { href: '/coursework/', label: 'Coursework', key: 'task' },
+];
+
+const teacherNav = [
+  { href: '/teachers/', label: 'Overview', key: 'teacher-home' },
+  { href: '/teachers/scheme-of-work/', label: 'Scheme of work', key: 'sow' },
+  { href: '/teachers/lessons/', label: 'Lessons', key: 'lessons' },
+  { href: '/teachers/assessment/', label: 'Assessment', key: 'assessment' },
+];
+
+const nav = mode === 'teacher' ? teacherNav : studentNav;
+---
+
+<!doctype html>
+<html lang="en-GB" data-mode={mode}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title} &middot; Macbeth Study Guide</title>
+    <meta name="description" content={description} />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  </head>
+  <body>
+    <div class="ee-family-bar">
+      <div class="wrap">
+        <a class="ee-family" href="https://extendedenglish.com/" aria-label="Extended English home">
+          <svg class="ee-family-mark" width="30" height="30" viewBox="0 0 38 38" aria-hidden="true">
+            <rect x="3" y="3" width="32" height="32" rx="7" fill="none" stroke="#201D17" stroke-width="2"/>
+            <path d="M19 12 C15 9 10 9 8 10 v16 c2 -1 7 -1 11 2 M19 12 C23 9 28 9 30 10 v16 c-2 -1 -7 -1 -11 2 M19 12 V30" fill="none" stroke="#8A6A2E" stroke-width="2.2" stroke-linejoin="round"/>
+          </svg>
+          <span class="ee-family-text">Extended English<span class="ee-family-sub">Study sites for GCSE and A Level English</span></span>
+        </a>
+      </div>
+    </div>
+
+    <div class="mode-bar">
+      <div class="wrap">
+        <div class="mode-tabs" role="navigation" aria-label="Site version">
+          <a href="/" aria-current={mode === 'student' ? 'true' : 'false'}>For Students</a>
+          <a href="/teachers/" aria-current={mode === 'teacher' ? 'true' : 'false'}>For Teachers</a>
+        </div>
+        <div class="mode-side">
+          <span class="mode-note">
+            {mode === 'teacher'
+              ? 'Teacher area'
+              : 'Edexcel International GCSE English Literature · Component 3: Literary Heritage coursework'}
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <header class="site">
+      <div class="wrap">
+        <a class="brand" href={mode === 'teacher' ? '/teachers/' : '/'}>
+          <svg width="38" height="38" viewBox="0 0 38 38" aria-hidden="true">
+            <path d="M8 27 L8 13 L13.5 18 L19 10 L24.5 18 L30 13 L30 27 Z" fill="#EFE5D2" stroke="#1F1A17" stroke-width="2" stroke-linejoin="round" />
+            <line x1="8" y1="30.5" x2="30" y2="30.5" stroke="#8E2430" stroke-width="2.4" stroke-linecap="round" />
+            <circle cx="19" cy="8" r="1.8" fill="#8E2430" />
+          </svg>
+          <span class="t">Macbeth<span class="s">A guide to Shakespeare&rsquo;s tragedy</span></span>
+        </a>
+        <nav class="primary" aria-label="Main">
+          {nav.map((item) => (
+            <a href={item.href} aria-current={active === item.key ? 'page' : undefined}>{item.label}</a>
+          ))}
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <slot />
+    </main>
+
+    <footer class="site">
+      <div class="wrap">
+        <div>
+          <h4>Macbeth</h4>
+          <p style="max-width: 24em;">
+            Act-by-act guides to the play, the characters and their arcs, verified quotations, context that adds to the effect, and clear guidance on the Literary Heritage coursework essay. Written for students; built by a teacher.
+          </p>
+          <p class="small">&copy; {new Date().getFullYear()} Extended English. All rights reserved.</p>
+        </div>
+        <div class="cols">
+          <div>
+            <h4>Study</h4>
+            <ul>
+              <li><a href="/guide/">The guide</a></li>
+              <li><a href="/themes/">Themes</a></li>
+              <li><a href="/characters/">Characters</a></li>
+              <li><a href="/context/">Context</a></li>
+              <li><a href="/quotations/">Quotations</a></li>
+              <li><a href="/coursework/">Coursework</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4>Teach</h4>
+            <ul>
+              <li><a href="/teachers/">Teacher area</a></li>
+              <li><a href="/teachers/scheme-of-work/">Scheme of work</a></li>
+              <li><a href="/teachers/lessons/">Lessons</a></li>
+              <li><a href="/teachers/assessment/">Assessment</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4>The family</h4>
+            <ul>
+              <li><a href="https://extendedenglish.com/">Extended English home</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <style>
+      .ee-family-bar { background: #F5F0E6; border-bottom: 2px solid #201D17; }
+      .ee-family-bar .wrap { display: flex; }
+      .ee-family { display: inline-flex; align-items: center; gap: 0.55rem; padding: 0.4rem 0; text-decoration: none; color: #201D17; font-family: 'Spectral', Georgia, serif; }
+      .ee-family-mark { flex: none; display: block; }
+      .ee-family-text { display: flex; flex-direction: column; line-height: 1.05; font-weight: 700; font-size: 1.02rem; color: #201D17; }
+      .ee-family-sub { font-family: 'Work Sans', 'Segoe UI', sans-serif; font-size: 0.6rem; letter-spacing: 0.11em; text-transform: uppercase; font-weight: 600; color: #8A6A2E; margin-top: 3px; }
+      .ee-family:hover .ee-family-text, .ee-family:focus-visible .ee-family-text { text-decoration: underline; }
+      .ee-family:focus-visible { outline: 2px solid #8A6A2E; outline-offset: 3px; }
+      @media (max-width: 560px) { .ee-family-sub { display: none; } }
+    </style>
+  </body>
+</html>

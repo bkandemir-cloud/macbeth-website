@@ -1,0 +1,142 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const banks = [
+  {
+    theme: 'Kingship',
+    rows: [
+      { q: '&lsquo;There&rsquo;s no art to find the mind&rsquo;s construction in the face&rsquo;', where: 'Act 1, Scene 4 &middot; Duncan', m: 'Antithesis; dramatic irony', note: 'Duncan&rsquo;s faith that faces cannot be read is spoken just before he trusts Macbeth: the play&rsquo;s warning that good kingship and fatal naivety can be the same thing.' },
+      { q: '&lsquo;More is thy due than more than all can pay&rsquo;', where: 'Act 1, Scene 4 &middot; Duncan', m: 'Hyperbole', note: 'The ideal king rewards loyalty openly; the line sets a standard of gracious rule against which Macbeth&rsquo;s later reign of fear is measured.' },
+      { q: '&lsquo;Signs of nobleness, like stars, shall shine on all deservers&rsquo;', where: 'Act 1, Scene 4 &middot; Duncan', m: 'Simile', note: 'Duncan ties good rule to natural light and order; when Macbeth begs the stars to hide their fires, the same image is turned inside out.' },
+      { q: '&lsquo;The king-becoming graces&rsquo;', where: 'Act 4, Scene 3 &middot; Malcolm', m: 'Listing', note: 'Malcolm&rsquo;s catalogue of virtues defines legitimate kingship by everything Macbeth lacks, turning a character test into a political manifesto.' },
+      { q: '&lsquo;This tyrant, whose sole name blisters our tongues&rsquo;', where: 'Act 4, Scene 3 &middot; Malcolm', m: 'Metaphor', note: '&lsquo;Tyrant&rsquo; replaces &lsquo;king&rsquo;: the word itself wounds, marking how far Macbeth has fallen from the sacred title he seized.' },
+      { q: '&lsquo;Upon my head they placed a fruitless crown&rsquo;', where: 'Act 3, Scene 1 &middot; Macbeth', m: 'Metaphor', note: 'The crown he killed for is barren; he rules but founds no line, so kingship becomes a possession that gives him nothing to keep.' },
+    ],
+  },
+  {
+    theme: 'The presentation of women',
+    rows: [
+      { q: '&lsquo;Unsex me here&rsquo;', where: 'Act 1, Scene 5 &middot; Lady Macbeth', m: 'Imperative', note: 'She asks to be emptied of womanhood to do the deed, exposing the play&rsquo;s assumption that cruelty is male and tenderness female.' },
+      { q: '&lsquo;Come to my woman&rsquo;s breasts, and take my milk for gall&rsquo;', where: 'Act 1, Scene 5 &middot; Lady Macbeth', m: 'Grotesque imagery', note: 'Nourishment is rewritten as poison: motherhood, the age&rsquo;s emblem of the good woman, is offered up to be perverted.' },
+      { q: '&lsquo;That no compunctious visitings of nature shake my fell purpose&rsquo;', where: 'Act 1, Scene 5 &middot; Lady Macbeth', m: 'Personification', note: 'She treats conscience as an intruder to be barred, dramatising the effort it takes to unmake a woman&rsquo;s expected nature.' },
+      { q: '&lsquo;The milk of human kindness&rsquo;', where: 'Act 1, Scene 5 &middot; Lady Macbeth', m: 'Metaphor', note: 'She diagnoses her husband&rsquo;s gentleness as weakness; the nurturing image she scorns is the very quality the play proves he needed.' },
+      { q: '&lsquo;I have given suck, and know how tender &rsquo;tis to love the babe that milks me&rsquo;', where: 'Act 1, Scene 7 &middot; Lady Macbeth', m: 'Shocking anecdote', note: 'She invokes motherhood only to threaten its destruction, using the most female of experiences to prove she is harder than a man.' },
+      { q: '&lsquo;More needs she the divine than the physician&rsquo;', where: 'Act 5, Scene 1 &middot; Doctor', m: 'Antithesis', note: 'Her sickness is named as spiritual, not medical: the woman who dismissed conscience is destroyed by it, and moral order reasserts itself.' },
+    ],
+  },
+  {
+    theme: 'Masculinity',
+    rows: [
+      { q: '&lsquo;I dare do all that may become a man&rsquo;', where: 'Act 1, Scene 7 &middot; Macbeth', m: 'Antithesis', note: 'Macbeth defines manhood as knowing where to stop; the play then tests whether that restraint or his wife&rsquo;s idea of daring is the true measure of a man.' },
+      { q: '&lsquo;When you durst do it, then you were a man&rsquo;', where: 'Act 1, Scene 7 &middot; Lady Macbeth', m: 'Emotional blackmail', note: 'She reduces manhood to the willingness to kill, weaponising gender to push him over the edge his conscience refused.' },
+      { q: '&lsquo;Was the hope drunk&rsquo;', where: 'Act 1, Scene 7 &middot; Lady Macbeth', m: 'Rhetorical question', note: 'She mocks his hesitation as cowardice, staging the pressure that runs through the play: that to be a man is to act, whatever the act.' },
+      { q: '&lsquo;Dispute it like a man&rsquo;', where: 'Act 4, Scene 3 &middot; Malcolm', m: 'Imperative', note: 'Malcolm reaches for the same equation of manhood with action that ruined Macbeth, and Macduff&rsquo;s reply corrects it.' },
+      { q: '&lsquo;I shall do so, but I must also feel it as a man&rsquo;', where: 'Act 4, Scene 3 &middot; Macduff', m: 'Antithesis', note: 'Macduff redefines masculinity to include grief: the play&rsquo;s answer to Lady Macbeth, that a man who cannot feel is not more of a man but less.' },
+    ],
+  },
+  {
+    theme: 'The supernatural and equivocation',
+    rows: [
+      { q: '&lsquo;Fair is foul, and foul is fair&rsquo;', where: 'Act 1, Scene 1 &middot; The Witches', m: 'Chiasmus; paradox', note: 'The moral compass is spun on the first page: a world where opposites collapse, preparing every later deception and double meaning.' },
+      { q: '&lsquo;Instruments of darkness tell us truths&rsquo;', where: 'Act 1, Scene 3 &middot; Banquo', m: 'Paradox', note: 'Banquo grasps the trap Macbeth misses: evil speaks true in order to damn, the exact equivocation England was trying in 1606.' },
+      { q: '&lsquo;By the pricking of my thumbs, something wicked this way comes&rsquo;', where: 'Act 4, Scene 1 &middot; Second Witch', m: 'Rhyme; foreshadowing', note: 'The witches feel Macbeth approach as a physical wrongness; &lsquo;wicked&rsquo; now names the man himself, marking how far he has crossed into their world.' },
+      { q: '&lsquo;None of woman born&rsquo;', where: 'Act 4, Scene 1 &middot; Apparition', m: 'Equivocation', note: 'A promise that sounds like safety and hides a loophole; the phrase lulls Macbeth into the recklessness that kills him.' },
+      { q: '&lsquo;Great Birnam wood to high Dunsinane hill&rsquo;', where: 'Act 4, Scene 1 &middot; Apparition', m: 'Equivocation; dramatic irony', note: 'An impossibility that comes true when the army carries branches: the truth was honest and murderous at once, demonology as the age believed it.' },
+      { q: '&lsquo;Lies like truth&rsquo;', where: 'Act 5, Scene 5 &middot; Macbeth', m: 'Oxymoron', note: 'Too late, Macbeth names the method that trapped him; the whole play&rsquo;s equivocation is compressed into two words as the promises unravel.' },
+    ],
+  },
+  {
+    theme: 'Ambition',
+    rows: [
+      { q: '&lsquo;If chance will have me king, why, chance may crown me&rsquo;', where: 'Act 1, Scene 3 &middot; Macbeth', m: 'Aside', note: 'The first flicker of the wish; he hands the choice to fate to avoid owning the ambition already stirring in him.' },
+      { q: '&lsquo;Stars, hide your fires&rsquo;', where: 'Act 1, Scene 4 &middot; Macbeth', m: 'Apostrophe', note: 'He asks the heavens to look away from his desire, admitting the ambition is shameful even as he refuses to give it up.' },
+      { q: '&lsquo;Vaulting ambition, which o&rsquo;erleaps itself&rsquo;', where: 'Act 1, Scene 7 &middot; Macbeth', m: 'Metaphor', note: 'Ambition is a rider who jumps too hard and falls: Macbeth names his own fatal flaw in the very soliloquy where he decides to indulge it.' },
+      { q: '&lsquo;The Prince of Cumberland&rsquo;', where: 'Act 1, Scene 4 &middot; Macbeth', m: 'Aside', note: 'The naming of Duncan&rsquo;s heir turns a vague wish into a rival to be removed; ambition acquires an obstacle and hardens into a plan.' },
+      { q: '&lsquo;To be thus is nothing, but to be safely thus&rsquo;', where: 'Act 3, Scene 1 &middot; Macbeth', m: 'Antithesis', note: 'The crown gained is already not enough: ambition, once fed, only grows more anxious, driving the second murder before the first is cold.' },
+      { q: '&lsquo;Cabined, cribbed, confined&rsquo;', where: 'Act 3, Scene 4 &middot; Macbeth', m: 'Tricolon; plosives', note: 'The king who wanted everything now feels trapped: the hammering consonants enact a man boxed in by the very power he killed to hold.' },
+    ],
+  },
+  {
+    theme: 'Guilt and blood',
+    rows: [
+      { q: '&lsquo;Macbeth does murder sleep&rsquo;', where: 'Act 2, Scene 2 &middot; Macbeth', m: 'Personification', note: 'The crime kills rest itself: guilt is built into the act, so Macbeth condemns himself to sleeplessness in the moment of triumph.' },
+      { q: '&lsquo;Will all great Neptune&rsquo;s ocean wash this blood clean from my hand&rsquo;', where: 'Act 2, Scene 2 &middot; Macbeth', m: 'Hyperbole; rhetorical question', note: 'The blood is a stain the sea cannot lift: guilt is imagined as indelible, and the question already knows its answer is no.' },
+      { q: '&lsquo;A little water clears us of this deed&rsquo;', where: 'Act 2, Scene 2 &middot; Lady Macbeth', m: 'Dramatic irony', note: 'Her brisk confidence is set against his despair; the water she trusts will become the spot she cannot wash away.' },
+      { q: '&lsquo;Blood will have blood&rsquo;', where: 'Act 3, Scene 4 &middot; Macbeth', m: 'Proverb; repetition', note: 'Murder breeds murder as a law of nature: guilt hardens into a logic that drives Macbeth from one killing to the next.' },
+      { q: '&lsquo;I am in blood stepped in so far&rsquo;', where: 'Act 3, Scene 4 &middot; Macbeth', m: 'Metaphor', note: 'He pictures himself wading in gore, too deep to turn back; guilt becomes an excuse to go on, the point of no return spoken aloud.' },
+      { q: '&lsquo;Out, damned spot&rsquo;', where: 'Act 5, Scene 1 &middot; Lady Macbeth', m: 'Imperative; symbol', note: 'The confident woman is undone by a stain only she can see: guilt returns as compulsion, and her earlier &lsquo;little water&rsquo; is answered in full.' },
+    ],
+  },
+  {
+    theme: 'Appearance and reality',
+    rows: [
+      { q: '&lsquo;False face must hide what the false heart doth know&rsquo;', where: 'Act 1, Scene 7 &middot; Macbeth', m: 'Antithesis; rhyme', note: 'Macbeth adopts deceit as policy; the neat rhyme makes hypocrisy sound like wisdom, the trap the play keeps setting for those who watch faces.' },
+      { q: '&lsquo;Look like the time&rsquo;', where: 'Act 1, Scene 5 &middot; Lady Macbeth', m: 'Imperative', note: 'She coaches her husband in performance: survival at court depends on acting a part, so appearance is treated as a skill to be managed.' },
+      { q: '&lsquo;There&rsquo;s daggers in men&rsquo;s smiles&rsquo;', where: 'Act 2, Scene 3 &middot; Donalbain', m: 'Metaphor', note: 'The one clear reading in a room of pretence: a smile can be a weapon, so the sons flee a court where nothing shown can be trusted.' },
+      { q: '&lsquo;Is this a dagger which I see before me&rsquo;', where: 'Act 2, Scene 1 &middot; Macbeth', m: 'Soliloquy; rhetorical question', note: 'The vision blurs the seen and the imagined; the audience alone shares his hallucination, so form itself stages appearance collapsing into reality.' },
+      { q: '&lsquo;Nothing is but what is not&rsquo;', where: 'Act 1, Scene 3 &middot; Macbeth', m: 'Paradox', note: 'Reality dissolves the instant the prophecy lands: only the imagined future feels solid, and Macbeth is already living inside a fantasy of the crown.' },
+    ],
+  },
+  {
+    theme: 'Order and disorder',
+    rows: [
+      { q: '&lsquo;Confusion now hath made his masterpiece&rsquo;', where: 'Act 2, Scene 3 &middot; Macduff', m: 'Personification', note: 'The murder of the king is disorder&rsquo;s finest work: regicide is staged as the summit of chaos, an offence against the whole ordered world.' },
+      { q: '&lsquo;The night has been unruly&rsquo;', where: 'Act 2, Scene 3 &middot; Lennox', m: 'Pathetic fallacy', note: 'Nature convulses in answer to the crime, exactly as the age expected when the Chain of Being was broken; the storm is the universe recoiling.' },
+      { q: '&lsquo;The wine of life is drawn&rsquo;', where: 'Act 2, Scene 3 &middot; Macbeth', m: 'Metaphor', note: 'Mourning Duncan in the language of an emptied cask, Macbeth mouths order while embodying its ruin, so hypocrisy and real loss sound in one line.' },
+      { q: '&lsquo;Tomorrow, and tomorrow, and tomorrow&rsquo;', where: 'Act 5, Scene 5 &middot; Macbeth', m: 'Repetition; metre', note: 'Time itself has gone slack and meaningless: the disorder Macbeth loosed on Scotland ends inside him, as a future drained of all purpose.' },
+    ],
+  },
+];
+
+const total = banks.reduce((n, b) => n + b.rows.length, 0);
+---
+
+<BaseLayout title="Quotation Bank" active="quotations" description="A bank of verified Macbeth quotations organised by focus: kingship, women, masculinity, the supernatural and equivocation, ambition, guilt and blood, appearance and reality, order and disorder, each read from method to effect.">
+  <div class="part-head">
+    <div class="wrap">
+      <p class="kicker">Short. Verified. Organised by focus.</p>
+      <h1>Quotation bank</h1>
+      <p class="lede prose">
+        Evidence is not about covering the plot; it is about choosing the line that gives you the most
+        to say. A short quotation you can open up on language, form and context will always beat a long
+        one you can only summarise. This bank is arranged around the three set questions and the main
+        themes, so you can work straight from your chosen title. Every line is checked against the play,
+        but copy each one accurately from your own annotated edition before it goes in an essay.
+      </p>
+    </div>
+  </div>
+
+  <section class="band">
+    <div class="wrap">
+      {banks.map((bank) => (
+        <div>
+          <h2>{bank.theme}</h2>
+          <table class="quote-table">
+            <thead><tr><th>Quotation (act and scene)</th><th>Method</th><th>Its effect</th></tr></thead>
+            <tbody>
+              {bank.rows.map((r) => (
+                <tr>
+                  <td class="q"><span set:html={r.q}></span><br /><span class="small" set:html={r.where}></span></td>
+                  <td class="m">{r.m}</td>
+                  <td><span set:html={r.note}></span></td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      ))}
+
+      <div class="box think" style="max-width: 46rem;">
+        <h3>What is this quotation&rsquo;s effect?</h3>
+        <p>
+          Test every line with three questions. First, can you name a method and then push it to an
+          effect: if all you can write is &lsquo;this shows&rsquo;, the quotation is carrying you rather
+          than the other way round. Second, does it open onto context, a word or image you can loop back
+          to the Jacobean world? Third, is it short enough to quote whole and analyse closely, a phrase
+          rather than a speech? A line that answers all three gives you something to argue. A line that
+          only proves the plot happened does not, however famous it is.
+        </p>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
